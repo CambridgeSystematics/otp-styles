@@ -26,23 +26,97 @@ body
     color: $black
     >.container-fluid
       padding: 0
+    .navbar-header
+      +roboto-condensed-bold
+      &::after
+        font-size: 32px
+        line-height: 1.5
+        content: 'Public Transit'
+        display: inline-block
+        color: $brand-red
+        margin-left: .25em
     .navbar-brand
       color: currentColor
       margin: 0
-      padding: 0 $font-base-size
+      padding: 0 0 0 $font-base-size
+      &::after
+        font-size: 32px
+        line-height: 1.5
+        content: 'Nebraska'
+        display: inline-block
+        color: $black
+        padding-left: 80px
+        background-image: url($logo-encoded)
+        background-size: 70px auto
+        background-repeat: no-repeat
+        background-position: left center
+        height: 100%
+        margin: 0
+        margin-left: 36px!important
     .navbar-title
-      +roboto-condensed-bold
-      color: currentColor
-      font-size: 32px
-      line-height: 1
-      padding-left: 80px
-      background-image: url($logo-encoded)
-      background-size: 70px auto
-      background-repeat: no-repeat
-      background-position: left center
-      height: 100%
+      display: none
+      
+.sidebar
+  .form
+    padding: $content-space!important
+    [class*='styled__FormGroup']
+      border: 1px solid $brand-yellow-ada
       margin: 0
-      margin-left: 36px!important
+      border-radius: $input-radius-size
+      background-color: $white
+      overflow: hidden
+      width: calc(100% - $input-height - $content-space)
+      height: $input-height
+      input
+        font-size: 16px
+      button
+        svg
+          color: currentColor
+    [class*='styled__FormGroup']:first-child
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      button
+        color: $gray-dark
+    [class*='styled__FormGroup']:first-child + [class*='styled__FormGroup']
+      border-top-width: 0px
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      margin-bottom: $content-space
+      button
+        color: $brand-red
+    [class*='styled__InputGroup']
+      border: none
+      input
+        height: $input-height
+        padding: 0
+    .switch-button-container
+      width: $input-height
+      height: $input-height
+      right: $content-space
+      top: $input-height/2 + $content-space
+      padding: 0
+      &::before
+        content: ''
+        width: $content-space
+        height: 1px 
+        background-color: $brand-yellow-ada
+        display: block
+        position: absolute
+        top: 50%
+        left: -$content-space
+        margin-top: 1px
+      button
+        width: $input-height
+        height: $input-height
+        padding: 0
+        text-align: center
+        background-color: $brand-red
+        color: $white
+        border: none
+        border-radius: $input-radius-size
+        font-size: $font-base-size*1.25
+        line-height: 0
+
 
 .app-menu-icon
   color: $brand-red
@@ -56,8 +130,5 @@ body
 // ----------------------------------------------
 // Temp
 
-.view-switcher
-  display: none
-
-#plan-trip
+.view-switcher, #plan-trip, .user-settings
   display: none
