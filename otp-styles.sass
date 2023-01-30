@@ -1,0 +1,63 @@
+// ----------------------------------------------
+// Imports
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500&display=swap')
+@import fonts
+@import colors
+@import helpers
+@import examplecss
+
+
+// ----------------------------------------------
+// Branding
+
+body
+  +roboto-regular
+  font-size: $font-base-size
+  color: $black
+
+.otp
+  .navbar
+    position: relative
+    z-index: 1001
+    background-color: $gray-light
+    border: none
+    border-bottom: 2px solid $brand-yellow
+    color: $black
+    >.container-fluid
+      padding: 0
+    .navbar-brand
+      color: currentColor
+      margin: 0
+      padding: 0 $font-base-size
+    .navbar-title
+      +roboto-condensed-bold
+      color: currentColor
+      font-size: 32px
+      line-height: 1
+      padding-left: 80px
+      background-image: url($logo-encoded)
+      background-size: 70px auto
+      background-repeat: no-repeat
+      background-position: left center
+      height: 100%
+      margin: 0
+      margin-left: 36px!important
+
+.app-menu-icon
+  color: $brand-red
+  >span
+    border-color: currentColor
+
+.main-row
+  top: 52px
+
+
+// ----------------------------------------------
+// Temp
+
+.view-switcher
+  display: none
+
+#plan-trip
+  display: none
