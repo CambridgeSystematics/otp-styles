@@ -129,6 +129,8 @@ body
             border: 2px solid $brand-red
             outline: none
     .tabbed-form-panel
+      padding: 0 $content-space
+      margin: 0
       .tab
         position: relative
         z-index: 1
@@ -137,6 +139,8 @@ body
           border-radius: $input-radius-size
           transition: border-radius .125s ease-in-out
           position: relative
+          padding: $content-space/2 $content-space
+          .summary
           .button-container
             position: absolute
             right: 0
@@ -162,6 +166,7 @@ body
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
             position: relative
+            padding-bottom: $content-space*1.5
             .button-container
               button
                 transform: rotate(180deg)
@@ -185,7 +190,77 @@ body
         border-radius: $input-radius-size
         position: relative
         z-index: 2
-    .desktop-narrative-container
+        padding: $content-space
+        .hide-button-row
+          margin-top: $content-space
+          button
+            opacity: .75
+            font-size: .875em
+            text-transform: uppercase
+            .fa
+              display: none
+            &:hover, &:focus
+              opacity: 1
+              text-decoration: underline
+              
+        .main-panel
+          >div
+            margin: 0
+        .date-time-modal
+          div
+            padding: 0
+            margin: 0
+            &[class*='ModeButton']
+              padding: 0 $content-space/6
+              button
+                border: none
+                box-shadow: 0 0 $content-space/2 0 rgba($brand-yellow-ada,.375)
+                background-color: $tab-tab-bg
+                border-radius: $small-radius-size
+                overflow: visible
+                &:hover, &:focus-visible
+                  border: 1px solid $brand-red
+                &.active
+                  background-color: $white
+                  border-bottom-left-radius: 0
+                  border-bottom-right-radius: 0
+                  position: relative
+                  &::after
+                    content: ''
+                    display: block
+                    position: absolute
+                    background-color: $white
+                    height: $content-space
+                    left: 0
+                    right: 0
+                    bottom: -$content-space/2
+                  &:hover, &:focus
+                    border: none
+              &:first-child
+                padding-left: 0
+                button
+                  &.active
+                    border-radius: $small-radius-size
+                    overflow: hidden
+              &:last-child
+                padding-right: 0
+            &[class*='DateTimeRow']
+              margin-top: $content-space/3
+              padding: $content-space
+              background-color: $white
+              border-radius: $small-radius-size
+              background: linear-gradient(180deg, $white, $gray-light)
+              >div
+                padding: $content-space/2
+                &:first-child
+                  padding-left: 0
+                &:last-child
+                  padding-right: 0
+              input
+                border-radius: $small-radius-size
+                border: 1px solid $brand-yellow-ada
+                text-align: left
+      .desktop-narrative-container
     
   .app-menu-icon
     color: $brand-red
