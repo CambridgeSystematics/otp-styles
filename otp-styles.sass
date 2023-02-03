@@ -128,7 +128,64 @@ body
             background-color: $brand-yellow-ada
             border: 2px solid $brand-red
             outline: none
-  .desktop-narrative-container
+    .tabbed-form-panel
+      .tab
+        position: relative
+        z-index: 1
+        .tab-content
+          background-color: $tab-bg
+          border-radius: $input-radius-size
+          transition: border-radius .125s ease-in-out
+          position: relative
+          .button-container
+            position: absolute
+            right: 0
+            top: 0
+            padding: 4px
+            button
+              border: none
+              background: transparent
+              background-image: url($tab-chevron-encoded)
+              background-repeat: no-repeat
+              background-size: auto .75em
+              background-position: center center
+              transition: transform .25s ease-in-out
+              border-radius: $input-radius-size
+              i
+                display: none
+              &:focus, &:hover
+                outline: none
+                border: 1px solid $brand-red
+                background-color: $white
+        &.selected
+          .tab-content
+            border-bottom-left-radius: 0
+            border-bottom-right-radius: 0
+            position: relative
+            .button-container
+              button
+                transform: rotate(180deg)
+          &:first-child, &:last-child
+            &::after
+              content: ''
+              position: absolute
+              width: $input-radius-size
+              height: $input-radius-size
+              display: block
+              background-color: $tab-bg
+              bottom: -$input-radius-size
+              left: 0
+          &:last-child
+            &::after
+              left: inherit
+              right: 0
+
+      .active-panel
+        background-color: $tab-bg
+        border-radius: $input-radius-size
+        position: relative
+        z-index: 2
+    .desktop-narrative-container
     
   .app-menu-icon
     color: $brand-red
