@@ -166,7 +166,7 @@ body
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
             position: relative
-            padding-bottom: $content-space*1.5
+            padding-bottom: $content-space*1.25
             .button-container
               button
                 transform: rotate(180deg)
@@ -174,11 +174,11 @@ body
             &::after
               content: ''
               position: absolute
-              width: $input-radius-size
-              height: $input-radius-size
+              width: $font-base-size
+              height: $font-base-size
               display: block
               background-color: $tab-bg
-              bottom: -$input-radius-size
+              bottom: -$font-base-size
               left: 0
           &:last-child
             &::after
@@ -186,10 +186,10 @@ body
               right: 0
 
       .active-panel
-        background-color: $tab-bg
+        background: $tab-bg
         border-radius: $input-radius-size
-        position: relative
-        z-index: 2
+        // position: relative
+        // z-index: 2
         padding: $content-space
         .hide-button-row
           margin-top: $content-space
@@ -197,6 +197,7 @@ body
             opacity: .75
             font-size: .875em
             text-transform: uppercase
+            +roboto-condensed-regular
             .fa
               display: none
             &:hover, &:focus
@@ -206,42 +207,34 @@ body
         .main-panel
           >div
             margin: 0
-        .date-time-modal
+        .date-time-modal, .settings-selector-panel
           div
             padding: 0
             margin: 0
+            margin-left: 0!important
+            margin-right: 0!important
+            color: $black
             &[class*='ModeButton']
               padding: 0 $content-space/6
               button
-                border: none
+                border: 1px solid $tab-tab-bg
                 box-shadow: 0 0 $content-space/2 0 rgba($brand-yellow-ada,.375)
                 background-color: $tab-tab-bg
                 border-radius: $small-radius-size
                 overflow: visible
+                height: auto
+                min-height: $input-height
+                text-align: center
                 &:hover, &:focus-visible
                   border: 1px solid $brand-red
                 &.active
                   background-color: $white
-                  border-bottom-left-radius: 0
-                  border-bottom-right-radius: 0
                   position: relative
-                  &::after
-                    content: ''
-                    display: block
-                    position: absolute
-                    background-color: $white
-                    height: $content-space
-                    left: 0
-                    right: 0
-                    bottom: -$content-space/2
+                  border: 1px solid $white
                   &:hover, &:focus
-                    border: none
+                    border: 1px solid $white
               &:first-child
                 padding-left: 0
-                button
-                  &.active
-                    border-radius: $small-radius-size
-                    overflow: hidden
               &:last-child
                 padding-right: 0
             &[class*='DateTimeRow']
@@ -249,7 +242,7 @@ body
               padding: $content-space
               background-color: $white
               border-radius: $small-radius-size
-              background: linear-gradient(180deg, $white, $gray-light)
+              background: $secondary-panel-bg
               >div
                 padding: $content-space/2
                 &:first-child
@@ -257,10 +250,69 @@ body
                 &:last-child
                   padding-right: 0
               input
-                border-radius: $small-radius-size
-                border: 1px solid $brand-yellow-ada
-                text-align: left
-      .desktop-narrative-container
+                +input-style
+        .date-time-modal
+          div[class*='ModeButton']
+            button
+              &.active
+                border-bottom-left-radius: 0
+                border-bottom-right-radius: 0
+              &::after
+                content: ''
+                display: block
+                position: absolute
+                background-color: $white
+                height: $content-space
+                left: -1px
+                right: -1px
+                bottom: -$content-space*.75
+            &:first-child
+              button
+                &.active
+                  border-radius: $small-radius-size
+                  overflow: hidden
+        .settings-selector-panel
+          // font size standardizing
+          .hNSroI .styled__MainRow-sc-122ziys-8, 
+          .hNSroI .styled__SecondaryRow-sc-122ziys-9, 
+          .hNSroI .styled__TertiaryRow-sc-122ziys-10,
+          .hNSroI .styled__ModeSelector-sc-122ziys-7,
+          .hNSroI .styled__submodeRow-sc-122ziys-12
+            font-size: inherit
+            text-align: left
+            button, .styled__Title-sc-122ziys-15
+              font-size: inherit
+              text-align: center
+          div
+            &[class*='Row-sc']
+              display: flex
+              flex-wrap: nowrap
+              margin-bottom: $content-space
+              &:last-child
+                margin-bottom: 0
+              >*
+                flex-grow: 1
+              .styled__Title-sc-122ziys-15
+                margin-top: $content-space/2
+            &[class*='SettingsHeader']
+              font-size: $font-base-size*1.5
+              +roboto-condensed-bold
+            &[class*='SettingsSection'], &[class*='GeneralSettingsPanel']
+              padding: $content-space
+              background: $secondary-panel-bg
+              border-radius: $small-radius-size
+              margin: $content-space/3 0
+              label
+                float: none
+                text-transform: inherit
+                letter-spacing: inherit
+                padding: 0
+                +roboto-condensed-regular
+                color: $black
+              select
+                color: $black
+                +input-style
+          .desktop-narrative-container
     
   .app-menu-icon
     color: $brand-red

@@ -9,10 +9,20 @@ $small-radius-size: 4px
 
 $header-height: 52px
 
+$secondary-panel-bg: linear-gradient(180deg, $white, $gray-light)
+
 =clear-input-styles
   border: none!important
   background-image: none!important
   box-shadow: none!important
+
+=input-style
+  border-radius: $small-radius-size
+  border: 1px solid $brand-yellow-ada
+  text-align: left
+  &:hover, &:focus-visible
+    border: 1px solid $black
+    box-shadow: 0 0 $content-space/2 0 rgba($black,.375)
 
 $tab-chevron-encoded: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAWCAYAAACsR+4DAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFzSURBVHgBvdWxUoMwGAfwL7B05OAF5HgBHqFujoxu+godnWw3N30D6+amq5OOrt1cODK6wagL+P8UT3sNTZoE/ncckC80vxII4ggRQtwS0Ryb7LpuIaV8pAkDQgHDNR9iv27bdhXGccwNRd8nQuE0SRJZ1/WGJkiWZWfY3fPYfVMOQy7SNO1UFwRBcF6W5R2NjMLdWatqAbZGVeAL+n8zOQqRYRRFn7h1J6oqnrdijGnVoHi2FmHTNK/AwSbmNAFOh8J4q6qqbkI+Ae5Fh0N9g35v5BB+++jnQR9EYUVY8nH426jD8XSj/oR+72SH4rftAYcz0qC2YAa4GS8lNrge9Ux/S8Je1A5sDJwNSgnzibNFDcJ84FxQe2EuOFeUFmaD84HiCDIMBlxiwMuBcoMBj79/0APqIJgJrt87ozjaqdwaWTOtZLh4eocZ4LygyAbGMcXZosgWxjH48FujyAXGGcK5osgVxvmHy3H6AdQFUFfkmC/fCjIDjwaG1QAAAABJRU5ErkJggg=="
 
