@@ -17,6 +17,20 @@ body
   color: $black
 
 .otp
+  .btn-default
+    height: auto
+    min-height: $input-height
+    border-radius: $input-radius-size
+    border: 1px solid $gray-medium
+    outline: none
+    background: $gray-medium
+    font-size: $font-base-size
+    box-shadow: none
+    color: $black
+    &:hover, &:focus, &:focus-visible
+      background: $gray-light
+      border: 1px solid $brand-red
+      outline: none
   .navbar
     position: relative
     z-index: 1001
@@ -60,6 +74,9 @@ body
       display: none
       
   .sidebar
+    main
+      >div:first-child>div:first-child
+        padding-bottom: 0!important
     .locations
       padding: $content-space!important
       margin-top: 0!important
@@ -134,6 +151,10 @@ body
       .tab
         position: relative
         z-index: 1
+        &.left
+          padding-right: $content-space/2
+        &.right
+          padding-left: $content-space/2
         .tab-content
           background-color: $tab-bg
           border-radius: $input-radius-size
@@ -198,11 +219,15 @@ body
             font-size: .875em
             text-transform: uppercase
             +roboto-condensed-regular
+            background: none
+            border: none
             .fa
               display: none
-            &:hover, &:focus
+            &:hover, &:focus, &:focus-visible
               opacity: 1
               text-decoration: underline
+              background: none
+              border: none
               
         .main-panel
           >div
@@ -225,13 +250,14 @@ body
                 height: auto
                 min-height: $input-height
                 text-align: center
-                &:hover, &:focus-visible
+                &:hover, &:focus, &:focus-visible
                   border: 1px solid $brand-red
+                  outline: none
                 &.active
                   background-color: $white
                   position: relative
                   border: 1px solid $white
-                  &:hover, &:focus
+                  &:hover, &:focus, &:focus-visible
                     border: 1px solid $white
               &:first-child
                 padding-left: 0
@@ -312,8 +338,24 @@ body
               select
                 color: $black
                 +input-style
-          .desktop-narrative-container
-    
+    .desktop-narrative-container
+      padding: $content-space $content-space 0 $content-space
+      div
+        &[class*='ItineraryBody-sc']
+          background-color: $gray-lightest
+          padding: $content-space
+          border: 1px solid $brand-red
+        &[class*='TripDetails-sc']
+          border: 1px solid $gray-medium
+          border-top-width: 0
+          background-color: $gray-lighter
+          border-radius: 0
+          border-bottom-left-radius: $small-radius-size
+          border-bottom-right-radius: $small-radius-size
+          margin: 0 0 $content-space 0
+          padding: $content-space
+      .line-itin
+        margin-bottom: 0!important
   .app-menu-icon
     color: $brand-red
     >span
@@ -322,6 +364,87 @@ body
   .main-row
     top: $header-height
 
+  .tabbed-itineraries
+    margin: 0
+    .tab-row
+      margin: 0
+      display: flex
+      .tab-button
+        margin: 0 $content-space/6
+        border-top-left-radius: $small-radius-size
+        border-top-right-radius: $small-radius-size
+        flex-grow: 1
+        background-color: $white
+        border: 1px solid $gray-medium
+        border-bottom-width: 0
+        text-align: left
+        padding: $content-space/2 $content-space
+        font-size: $font-base-size
+        span
+          font-size: inherit
+          +roboto-condensed
+          color: $black
+          &.title
+              border-bottom: 1px solid $white
+        &:hover, &:focus, &:focus-visible
+          span
+            &.title
+              border-bottom: 1px solid $gray-ada
+        &.selected
+          background-color: $gray-lighter
+          border-color: $brand-red
+          position: relative
+          span
+            +roboto-condensed-bold
+            &.title
+              border-bottom: 1px solid $brand-red
+          &::after
+            content: ''
+            width: 100%
+            height: 1px
+            background-color: $gray-light
+            position: absolute
+            bottom: -1px
+            left: 0
+            right: 0
+            z-index: 100
+        &:first-child
+          margin-left: 0
+        &:last-child
+          margin-right: 0
+
+  .trip-tools
+    font-size: $font-base-size
+    .tool-button
+      font-size: inherit
+
+  .white-fade
+    display: none
+  
+  .bottom-fixed, .trip-tools
+    padding: $content-space
+    height: auto
+    background-color: $white
+    border-top: 1px solid $gray
+    .button-container
+      padding: 0 $content-space/2
+
+  .bottom-fixed
+    box-shadow: 0 0 $content-space/2 0 $gray-medium
+
+  .trip-tools
+    margin: 0
+    margin-right: -$content-space
+    margin-left: -$content-space
+    // position: relative
+    // &::after
+    //   content: ''
+    //   background: $white
+    //   position: absolute
+    //   bottom: -$content-space
+    //   height: $content-space
+    //   left: 0
+    //   right: 0
 
 // ----------------------------------------------
 // Temp
