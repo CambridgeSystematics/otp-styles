@@ -380,7 +380,7 @@ body
         text-align: left
         padding: $content-space/2 $content-space
         font-size: $font-base-size
-        span
+        span:not(.fa)
           font-size: inherit
           +roboto-condensed
           color: $black
@@ -394,7 +394,7 @@ body
           background-color: $gray-lighter
           border-color: $brand-red
           position: relative
-          span
+          span:not(.fa)
             +roboto-condensed-bold
             &.title
               border-bottom: 1px solid $brand-red
@@ -445,6 +445,12 @@ body
     //   height: $content-space
     //   left: 0
     //   right: 0
+
+  .SlZJS
+    background-color: $brand-red
+
+  span[style*='250, 100, 0']
+    color: $brand-red!important
 
 // ----------------------------------------------
 // Temp
