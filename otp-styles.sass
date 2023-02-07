@@ -457,3 +457,31 @@ body
 
 .view-switcher
   display: none
+
+//hiding transit options and preferences
+
+
+.otp
+  .sidebar
+    .tabbed-form-panel
+      .active-panel
+        border-top-right-radius: 0
+      .tab-row
+        // &::after
+        //   content: ''
+        //   display: table-cell
+        //   width: 25%
+      .tab.right
+        display: none
+      .tab.left
+        padding-right: 0
+        .tab-content
+          height: $input-height
+          .button-container
+            padding: 0
+        .summary
+          min-height: auto
+        br
+          display: none
+        .fa-clock
+          margin-left: 1em
