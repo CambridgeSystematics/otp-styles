@@ -45,6 +45,8 @@ body
       +roboto-condensed-bold
       display: flex
       flex-wrap: none
+      min-width: 40em
+      margin: 0!important
       &::after
         font-size: 32px
         line-height: 1.625
@@ -52,6 +54,9 @@ body
         display: inline-block
         color: $brand-red
         margin-left: .25em
+        +mq-max(500px)
+          font-size: 18px
+          line-height: 2.75
     .navbar-brand
       color: currentColor
       margin: 0
@@ -70,6 +75,11 @@ body
         height: 100%
         margin: 0
         margin-left: 36px!important
+        +mq-max(500px)
+          font-size: 18px
+          line-height: 2.75
+          background-size: 40px auto
+          padding-left: 50px
     .navbar-title
       display: none
       
@@ -148,6 +158,10 @@ body
     .tabbed-form-panel
       padding: 0 $content-space
       margin: 0
+      .tab-row
+        display: flex
+        align-items: stretch
+        margin-bottom: $content-space*.75
       .tab
         position: relative
         z-index: 1
@@ -155,18 +169,46 @@ body
           padding-right: $content-space/2
         &.right
           padding-left: $content-space/2
+        &:first-child, &:last-child
+          &::after
+            content: ''
+            position: absolute
+            width: $font-base-size
+            height: $content-space
+            display: block
+            background-color: $tab-bg
+            bottom: -$content-space*2
+            left: 0
+            opacity: 0
+            transition: opacity .125s ease-in-out
         .tab-content
           background-color: $tab-bg
           border-radius: $input-radius-size
           transition: border-radius .125s ease-in-out
           position: relative
           padding: $content-space/2 $content-space
+          height: 100%
+          transition: border-radius .125s ease-in-out
+          &::after
+            content: ''
+            height: $content-space*1.75
+            display: block
+            width: 100%
+            position: absolute
+            bottom: $content-space
+            z-index: 0
+            left: 0
+            background-color: $tab-bg
+            transition: bottom .125s ease-in-out
           .summary
+            width: 100%
+            position: relative
+            z-index: 1
           .button-container
             position: absolute
             right: 0
             top: 0
-            // padding: 4px
+            z-index: 2
             button
               border: none
               background: transparent
@@ -187,30 +229,24 @@ body
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
             position: relative
-            padding-bottom: $content-space*1.25
             .button-container
               button
                 transform: rotate(180deg)
+            &::after
+              bottom: -#{$content-space}
           &:first-child, &:last-child
             &::after
-              content: ''
-              position: absolute
-              width: $font-base-size
-              height: $font-base-size
-              display: block
-              background-color: $tab-bg
-              bottom: -$font-base-size
-              left: 0
+              opacity: 1
           &:last-child
             &::after
               left: inherit
               right: 0
-
+      +mq-max(1260px)
       .active-panel
         background: $tab-bg
         border-radius: $input-radius-size
         // position: relative
-        // z-index: 2
+        z-index: 2
         padding: $content-space
         .hide-button-row
           margin-top: $content-space
@@ -354,6 +390,8 @@ body
           border-bottom-right-radius: $small-radius-size
           margin: 0 0 $content-space 0
           padding: $content-space
+        &[class*='TripDetailsHeader']
+          +header
       .error-message
         margin: 0
         padding: $content-space 0 0 0
@@ -371,6 +409,7 @@ body
         margin-bottom: 0!important
   .app-menu-icon
     color: $brand-red
+    margin: 0!important
     >span
       border-color: currentColor
 
@@ -433,7 +472,6 @@ body
           margin-left: 0
         &:last-child
           margin-right: 0
-
   .trip-tools
     font-size: $font-base-size
     .tool-button
@@ -443,15 +481,16 @@ body
     display: none
   
   .bottom-fixed, .trip-tools
-    padding: $content-space
+    padding: $content-space/2
     height: auto
     background-color: $white
     border-top: 1px solid $gray
     .button-container
-      padding: 0 $content-space/2
+      padding: $content-space/2 $content-space/2
 
   .bottom-fixed
     box-shadow: 0 0 $content-space/2 0 $gray-medium
+    padding: $content-space
 
   .trip-tools
     margin: 0
