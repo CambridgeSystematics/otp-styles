@@ -166,7 +166,7 @@ body
             position: absolute
             right: 0
             top: 0
-            padding: 4px
+            // padding: 4px
             button
               border: none
               background: transparent
@@ -321,8 +321,7 @@ body
               .styled__Title-sc-122ziys-15
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
-              font-size: $font-base-size*1.5
-              +roboto-condensed-bold
+              +header
             &[class*='SettingsSection'], &[class*='GeneralSettingsPanel']
               padding: $content-space
               background: $secondary-panel-bg
@@ -345,8 +344,9 @@ body
           background-color: $gray-lightest
           padding: $content-space
           border: 1px solid $brand-red
+          border-bottom-color: $gray-medium
         &[class*='TripDetails-sc']
-          border: 1px solid $gray-medium
+          border: 1px solid $brand-red
           border-top-width: 0
           background-color: $gray-lighter
           border-radius: 0
@@ -354,6 +354,19 @@ body
           border-bottom-right-radius: $small-radius-size
           margin: 0 0 $content-space 0
           padding: $content-space
+      .error-message
+        margin: 0
+        padding: $content-space 0 0 0
+        text-align: center
+        .header
+          +header
+          border: none
+          margin: 0
+          padding: 0
+        .message
+          margin: 0
+          padding: 0 0 $content-space*2 0
+          border: none
       .line-itin
         margin-bottom: 0!important
   .app-menu-icon
@@ -380,8 +393,16 @@ body
         text-align: left
         padding: $content-space/2 $content-space
         font-size: $font-base-size
-        span:not(.fa)
+        display: inline-flex
+        flex-wrap: wrap
+        flex-direction: column
+        justify-content: space-between
+        span
           font-size: inherit
+          white-space: break-spaces
+          max-width: 100%
+          overflow: hidden
+        span:not(.fa)
           +roboto-condensed
           color: $black
           &.title
@@ -402,7 +423,7 @@ body
             content: ''
             width: 100%
             height: 1px
-            background-color: $gray-light
+            background-color: $gray-medium
             position: absolute
             bottom: -1px
             left: 0
@@ -459,29 +480,27 @@ body
   display: none
 
 //hiding transit options and preferences
-
-
-.otp
-  .sidebar
-    .tabbed-form-panel
-      .active-panel
-        border-top-right-radius: 0
-      .tab-row
-        // &::after
-        //   content: ''
-        //   display: table-cell
-        //   width: 25%
-      .tab.right
-        display: none
-      .tab.left
-        padding-right: 0
-        .tab-content
-          height: $input-height
-          .button-container
-            padding: 0
-        .summary
-          min-height: auto
-        br
-          display: none
-        .fa-clock
-          margin-left: 1em
+// .otp
+//   .sidebar
+//     .tabbed-form-panel
+//       .active-panel
+//         border-top-right-radius: 0
+//       .tab-row
+//         // &::after
+//         //   content: ''
+//         //   display: table-cell
+//         //   width: 25%
+//       .tab.right
+//         display: none
+//       .tab.left
+//         padding-right: 0
+//         .tab-content
+//           height: $input-height
+//           .button-container
+//             padding: 0
+//         .summary
+//           min-height: auto
+//         br
+//           display: none
+//         .fa-clock
+//           margin-left: 1em
