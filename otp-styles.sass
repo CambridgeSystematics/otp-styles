@@ -383,6 +383,18 @@ body
           padding: $content-space
           border: 1px solid $brand-red
           border-bottom-color: $gray-medium
+          *:not(.fa)
+            +roboto-condensed 
+            line-height: 1.2
+            text-align: left
+          div[class*='styled__LegDescription-sc']
+            display: flex
+            flex-wrap: wrap
+            align-items: center
+            div[class*='LegDescriptionRouteLongName']
+              margin-top: .25em
+          .sakQt *:not(.fa)
+            vertical-align: baseline
         &[class*='TripDetails-sc']
           border: 1px solid $brand-red
           border-top-width: 0
