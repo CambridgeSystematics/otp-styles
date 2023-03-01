@@ -54,7 +54,7 @@ body
         display: inline-block
         color: $brand-red
         margin-left: .25em
-        +mq-max(500px)
+        +mq-max(600px)
           font-size: 18px
           line-height: 3
     .navbar-brand
@@ -75,7 +75,7 @@ body
         height: 100%
         margin: 0
         margin-left: 36px!important
-        +mq-max(500px)
+        +mq-max(600px)
           font-size: 18px
           line-height: 3
           background-size: 40px auto
@@ -529,19 +529,37 @@ body
   span[style*='250, 100, 0']
     color: $brand-red!important
 
+  .sidebar-footer
+    position: absolute
+    width: 100%
+    right: 14px
+    text-align: right
+    top: 26px
+    z-index: 10000
+    transform: translateY(-50%)
+    a
+      color: #212121
+      text-decoration: underline
+      &:hover
+        color: #212121
+        text-decoration: none
+
 // ----------------------------------------------
 // Temp
 
-.view-switcher
+.view-switcher, .user-settings
   display: none
 
-//hiding transit options and preferences
+// hiding transit options and preferences
 // .otp
 //   .sidebar
 //     .tabbed-form-panel
 //       .active-panel
 //         border-top-right-radius: 0
+//         border-top-left-radius: 0
 //       .tab-row
+//         display: table
+//         margin-bottom: 0
 //         // &::after
 //         //   content: ''
 //         //   display: table-cell
@@ -552,6 +570,8 @@ body
 //         padding-right: 0
 //         .tab-content
 //           height: $input-height
+//           &::after
+//             content: none
 //           .button-container
 //             padding: 0
 //         .summary
