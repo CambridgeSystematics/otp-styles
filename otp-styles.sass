@@ -18,11 +18,30 @@ body
 
 body.mobile
   #main
-    &::before
-      content: 'Nebraska Public Transit'
+    &::before, &::after
+      +roboto-condensed-bold
       display: block
       width: 100%
       height: $mobile-branding-height
+      position: fixed
+      top: 0
+      padding: 0 $font-base-size
+      font-size: $font-base-size*1.5
+      line-height: $mobile-branding-height + 2px
+    &::before
+      // content: 'Nebraska Public Transit'
+      content: 'Nebraska'
+      color: $black
+      background-color: $gray-light
+      background-image: url($logo-encoded)
+      background-size: 40px auto
+      background-repeat: no-repeat
+      background-position: $font-base-size center
+      padding-left: 50px + $font-base-size
+    &::after
+      content: 'Public Transit'
+      padding-left: 7.05em // approx width of the word nebraska plus side padding
+      color: $brand-red
   .otp.mobile
     .navbar
       .mobile-back
