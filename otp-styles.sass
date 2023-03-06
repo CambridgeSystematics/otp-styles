@@ -16,7 +16,38 @@ body
   font-size: $font-base-size
   color: $black
 
-.otp
+body.mobile
+  #main
+    &::before
+      content: 'Nebraska Public Transit'
+      display: block
+      width: 100%
+      height: $mobile-branding-height
+  .otp.mobile
+    .navbar
+      .mobile-back
+        position: absolute
+        top: 0
+        line-height: 2em
+    .navbar-fixed-top
+      top: $mobile-branding-height
+    .mobile-header
+      position: static
+    .welcome-location, .location-search, .search-settings, .czXqpJ, .options-main-content
+      top: 50px + $mobile-branding-height
+    .welcome-map
+      top: 110px + $mobile-branding-height
+    .search-map
+      top: 300px + $mobile-branding-height
+    .results-map
+      top: 100px + $mobile-branding-height
+  .slide-pane__overlay
+    top: $mobile-branding-height
+  .slide-pane_from_left
+    margin-top: 50px
+  
+
+.otp:not(.mobile)
   .btn-default
     height: auto
     min-height: $input-height
@@ -531,7 +562,6 @@ body
 
   .sidebar-footer
     position: absolute
-    width: 100%
     right: 14px
     text-align: right
     top: 26px
