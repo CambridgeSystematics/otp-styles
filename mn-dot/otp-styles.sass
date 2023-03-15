@@ -19,6 +19,7 @@ body
 body.mobile
   #main
     &::before
+      content: ''
       display: block
       width: 100%
       height: $mobile-branding-height
@@ -28,14 +29,16 @@ body.mobile
       font-size: $font-base-size*1.5
       line-height: $mobile-branding-height + 2px
       color: $black
-      background-color: $gray-light
+      background-color: $brand-blue
       background-image: url($logo-encoded)
-      background-size: 40px auto
+      background-size: auto 20px
       background-repeat: no-repeat
       background-position: $font-base-size center
       padding-left: 50px + $font-base-size
+      border-bottom: 1px solid rgba($brand-green,.5)
   .otp.mobile
     .navbar
+      background-color: $brand-blue
       .mobile-back
         position: absolute
         top: 0
@@ -44,6 +47,9 @@ body.mobile
       top: $mobile-branding-height
     .mobile-header
       position: static
+      line-height: 1.7
+    .mobile-narrative-header
+      background-color: $brand-blue
     .welcome-location, .location-search, .search-settings, .czXqpJ, .options-main-content, .viewer-map
       top: 50px + $mobile-branding-height
     .welcome-map
@@ -67,15 +73,15 @@ body.mobile
     height: auto
     min-height: $input-height
     border-radius: $input-radius-size
-    border: 1px solid $gray-medium
+    border: none
     outline: none
-    background: $gray-medium
+    background: $brand-blue
     font-size: $font-base-size
     box-shadow: none
-    color: $black
+    color: $white
     &:hover, &:focus, &:focus-visible
-      background: $gray-light
-      border: 1px solid $brand-blue
+      background: $brand-green-ada
+      border: none
       outline: none
   .navbar
     position: relative
@@ -465,6 +471,7 @@ body.mobile
       display: flex
       .tab-button
         margin: 0 $content-space/6
+        border-radius: 0
         border-top-left-radius: $small-radius-size
         border-top-right-radius: $small-radius-size
         flex-grow: 1
@@ -572,6 +579,19 @@ body.mobile
         color: $white
         text-decoration: none
 
+  .stop-viewer, .trip-viewer, .route-viewer
+    .header-text
+      padding-bottom: $content-space
+    .stop-button-container
+      button
+        background: none
+        border: none
+        height: auto
+        min-height: auto
+        padding: 0
+        text-decoration: underline
+        color: $brand-blue
+    
 // ----------------------------------------------
 // Temp
 

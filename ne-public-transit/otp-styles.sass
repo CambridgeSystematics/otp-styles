@@ -491,6 +491,7 @@ body.mobile
       display: flex
       .tab-button
         margin: 0 $content-space/6
+        border-radius: 0
         border-top-left-radius: $small-radius-size
         border-top-right-radius: $small-radius-size
         flex-grow: 1
@@ -596,6 +597,27 @@ body.mobile
       &:hover
         color: #212121
         text-decoration: none
+
+  .stop-viewer, .trip-viewer, .route-viewer
+    .header-text
+      padding-bottom: $content-space       
+    .back-button-container
+      button
+        background-color: $black
+        color: $white
+        border: 1px solid $black
+        &:hover, &:focus-visible
+          background-color: $brand-yellow-ada
+    .stop-button-container
+      button
+        background: none
+        border: none
+        height: auto
+        min-height: auto
+        padding: 0
+        text-decoration: underline
+        color: $black
+
 
 // ----------------------------------------------
 // Temp
