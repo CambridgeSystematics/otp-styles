@@ -305,7 +305,9 @@ body.mobile
         z-index: 2
         padding: $content-space
         .hide-button-row
-          margin-top: $content-space
+          margin: $content-space -#{$content-space} 0 -#{$content-space}
+          padding: $content-space/2 $content-space/2 0 $content-space/2
+          border-top: 1px solid $black
           button
             opacity: .75
             font-size: .875em
@@ -332,35 +334,56 @@ body.mobile
             margin-right: 0!important
             color: $black
             &[class*='ModeButton']
-              padding: 0 $content-space/6
+              padding: $content-space/2
               button
-                border: 1px solid $tab-tab-bg
+                border: 1px solid $black
                 // box-shadow: 0 0 $content-space/2 0 rgba($brand-yellow-ada,.375)
-                background-color: $tab-tab-bg
+                background-color: transparent
                 border-radius: $small-radius-size
                 overflow: visible
                 height: auto
                 min-height: $input-height
-                text-align: center
+                text-align: left!important
+                white-space: initial
+                .icon
+                  color: currentColor
+                svg
+                  fill: currentColor
+                  display: inline-block
+                .label
+                  color: currentColor
+                  font-size: 1em
+                  font-weight: normal
+                  display: inline-block
+                  white-space: pre
+                  padding: .5em 0
+                  text-align: left
+                  +mq-max(400px)
+                    white-space: break-spaces
                 &:hover, &:focus, &:focus-visible
                   border: 1px solid $brand-red
                   outline: none
+                  background-color: rgba($white, .25)
                 &.active
-                  background-color: $white
+                  background-color: $black
                   position: relative
-                  border: 1px solid $white
+                  border: 1px solid $brand-red
+                  font-weight: bold
+                  color: $white
+                  .icon
+                    color: $white
+                  svg
+                    fill: $white
+                  .label
+                    font-weight: bold
                   &:hover, &:focus, &:focus-visible
-                    border: 1px solid $white
-              &:first-child
-                padding-left: 0
-              &:last-child
-                padding-right: 0
+                    border: 1px solid $brand-red
             &[class*='DateTimeRow']
               margin-top: $content-space/3
               padding: $content-space
-              background-color: $white
+              background-color: $black
               border-radius: $small-radius-size
-              background: $secondary-panel-bg
+              // background: $secondary-panel-bg
               >div
                 padding: $content-space/2
                 &:first-child
@@ -375,20 +398,24 @@ body.mobile
               &.active
                 border-bottom-left-radius: 0
                 border-bottom-right-radius: 0
+                border: 1px solid $black
               &::after
                 content: ''
                 display: block
                 position: absolute
-                background-color: $white
-                height: $content-space
+                background-color: $black
+                height: $content-space*1.5
                 left: -1px
                 right: -1px
-                bottom: -$content-space*.75
+                bottom: -$content-space*1.125
             &:first-child
               button
                 &.active
                   border-radius: $small-radius-size
                   overflow: hidden
+            .styled__DepartureRow-sc-122ziys-5
+              margin: 0 -#{$content-space/2}!important
+              padding: 0!important
         .settings-selector-panel
           // font size standardizing
           .hNSroI .styled__MainRow-sc-122ziys-8, 
@@ -401,6 +428,18 @@ body.mobile
             button, .styled__Title-sc-122ziys-15
               font-size: inherit
               text-align: center
+          .hNSroI .styled__ModeSelector-sc-122ziys-7
+            margin: 0 -#{$content-space/2}!important
+            padding: 0!important
+            display: flex
+            // justify-content: stretch
+            flex-wrap: wrap
+            div[class*=ModeButton]
+              width: 100%
+              max-width: 50%
+          .styled__submodeRow-sc-122ziys-12
+            margin: 0 -#{$content-space/2}!important
+            padding: 0!important
           div
             &[class*='Row-sc']
               display: flex
@@ -414,11 +453,17 @@ body.mobile
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
               +header
+              border-top: 1px solid $black
+              padding: .5em $content-space
+              margin-top: $content-space
+              margin-right: -#{$content-space}!important
+              margin-left: -#{$content-space}!important
             &[class*='SettingsSection'], &[class*='GeneralSettingsPanel']
-              padding: $content-space
-              background: $secondary-panel-bg
-              border-radius: $small-radius-size
-              margin: $content-space/3 0
+              padding: 0 0 $content-space 0
+              border-radius: 0
+              margin: 0 0 $content-space 0
+              &:not(:last-child)
+                border-bottom: 1px solid rgba($black, .5)
               label
                 float: none
                 text-transform: inherit
@@ -427,8 +472,11 @@ body.mobile
                 +roboto-condensed-regular
                 color: $black
               select
-                color: $black
                 +input-style
+                &:hover, &:focus, &:focus-visible
+                  border: 1px solid $brand-red
+                  background: rgba($white, .25)
+                  outline: none
     .desktop-narrative-container
       padding: $content-space $content-space 0 $content-space
       div

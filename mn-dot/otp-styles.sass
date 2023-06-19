@@ -282,7 +282,9 @@ body.mobile
         z-index: 2
         padding: $content-space
         .hide-button-row
-          margin-top: $content-space
+          margin: $content-space -#{$content-space} 0 -#{$content-space}
+          padding: $content-space/2 $content-space/2 0 $content-space/2
+          border-top: 1px solid $white
           button
             color: $white
             opacity: .75
@@ -310,31 +312,51 @@ body.mobile
             margin-right: 0!important
             color: $white
             &[class*='ModeButton']
-              padding: 0 $content-space/6
+              padding: $content-space/2
               button
-                border: 1px solid $tab-tab-bg
+                border: 1px solid rgba($white, .3)
                 // box-shadow: 0 0 $content-space/2 0 rgba($brand-green-ada,.375)
-                background-color: $tab-tab-bg
+                background-color: transparent
                 border-radius: $small-radius-size
                 overflow: visible
                 height: auto
                 min-height: $input-height
-                text-align: center
-                color: $black
+                text-align: left!important
+                color: $white
+                white-space: initial
+                .icon
+                  color: currentColor
+                svg
+                  fill: currentColor
+                  display: inline-block
+                .label
+                  color: currentColor
+                  font-size: 1em
+                  font-weight: normal
+                  display: inline-block
+                  white-space: pre
+                  padding: .5em 0
+                  text-align: left
+                  +mq-max(400px)
+                    white-space: break-spaces
                 &:hover, &:focus, &:focus-visible
-                  border: 1px solid $brand-blue
+                  border: 1px solid $white
+                  background: rgba($black, .25)
                   outline: none
                 &.active
                   background-color: $white
                   position: relative
                   border: 1px solid $white
                   color: $brand-green-ada
+                  font-weight: bold
+                  .icon
+                    color: $black
+                  svg
+                    fill: $black
+                  .label
+                    font-weight: bold
                   &:hover, &:focus, &:focus-visible
                     border: 1px solid $white
-              &:first-child
-                padding-left: 0
-              &:last-child
-                padding-right: 0
             &[class*='DateTimeRow']
               margin-top: $content-space/3
               padding: $content-space
@@ -360,15 +382,18 @@ body.mobile
                 display: block
                 position: absolute
                 background-color: $white
-                height: $content-space
+                height: $content-space*1.25
                 left: -1px
                 right: -1px
-                bottom: -$content-space*.75
+                bottom: -$content-space*1.125
             &:first-child
               button
                 &.active
                   border-radius: $small-radius-size
                   overflow: hidden
+          .styled__DepartureRow-sc-122ziys-5
+            margin: 0 -#{$content-space/2}!important
+            padding: 0!important
         .settings-selector-panel
           // font size standardizing
           .hNSroI .styled__MainRow-sc-122ziys-8, 
@@ -381,6 +406,18 @@ body.mobile
             button, .styled__Title-sc-122ziys-15
               font-size: inherit
               text-align: center
+          .hNSroI .styled__ModeSelector-sc-122ziys-7
+            margin: 0 -#{$content-space/2}!important
+            padding: 0!important
+            display: flex
+            // justify-content: stretch
+            flex-wrap: wrap
+            div[class*=ModeButton]
+              width: 100%
+              max-width: 50%
+          .styled__submodeRow-sc-122ziys-12
+            margin: 0 -#{$content-space/2}!important
+            padding: 0!important
           div
             &[class*='Row-sc']
               display: flex
@@ -394,21 +431,35 @@ body.mobile
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
               +header
+              border-top: 1px solid $white
+              padding: .5em $content-space
+              margin-top: $content-space
+              margin-right: -#{$content-space}!important
+              margin-left: -#{$content-space}!important
             &[class*='SettingsSection'], &[class*='GeneralSettingsPanel']
-              padding: $content-space
-              background: $secondary-panel-bg
-              border-radius: $small-radius-size
-              margin: $content-space/3 0
+              padding: 0 0 $content-space 0
+              border-radius: 0
+              margin: 0 0 $content-space 0
+              &:not(:last-child)
+                border-bottom: 1px solid rgba($white, .5)
               label
                 float: none
                 text-transform: inherit
                 letter-spacing: inherit
                 padding: 0
                 +opensans-medium
-                color: $black
+                color: $white
+                margin-bottom: $content-space
               select
-                color: $black
+                color: $white
                 +input-style
+                &:hover, &:focus, &:focus-visible
+                  border: 1px solid $white
+                  background: rgba($black, .25)
+                  outline: none
+          .styled__DropdownSelector-sc-122ziys-17
+            div::after
+              color: $white!important
     .desktop-narrative-container
       padding: $content-space $content-space 0 $content-space
       div
