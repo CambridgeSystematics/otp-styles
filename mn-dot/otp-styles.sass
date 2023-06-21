@@ -349,14 +349,13 @@ body.mobile
                   border: 1px solid $white
                   color: $brand-green-ada
                   font-weight: bold
+                  box-shadow: inset 0px 3px 4px rgba($black, 0.25)
                   .icon
                     color: $black
                   svg
                     fill: $black
                   .label
                     font-weight: bold
-                  &:hover, &:focus, &:focus-visible
-                    border: 1px solid $white
             &[class*='DateTimeRow']
               margin-top: $content-space/3
               padding: $content-space
@@ -451,15 +450,41 @@ body.mobile
                 color: $white
                 margin-bottom: $content-space
               select
-                color: $white
                 +input-style
+                background-color: $white
                 &:hover, &:focus, &:focus-visible
                   border: 1px solid $white
                   background: rgba($black, .25)
                   outline: none
+                  color: $white
+            &[class*='ModeButton']
+              button
+                &.active
+                  padding-right: 2.5em
+                  &::after
+                    border-top-right-radius: $small-radius-size
+                    border-bottom-right-radius: $small-radius-size
+                    content: ''
+                    width: 2em
+                    height: 100%
+                    background-color: $brand-green-ada
+                    display: block
+                    position: absolute
+                    top: 0
+                    right: 0
+                    bottom: 0
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC8SURBVHgB1ZQBDcIwEEW/hEmoBCQgAQl1gIROAg7AARKQgIRJQMJxIyVcLmXLut9ke0mTZbndT17+CuwVEUl6BC3QvVEyYKM7g56hZcBTfgxg8vVuCGCR1Vh6sNBlnfWuPMBEF16td7aa6NREsMjeX2b5BUyc9/G5A4vWlTy0rGTYXiWzz3E4zcydpaaS7qP0Z6a+kjp8mwtx3pffklMhwqpkKUTP0b3rsYZCiPV+B4NCyMe7kP9WH3JCBW+mXfg3fp89NQAAAABJRU5ErkJggg==')
+                    background-repeat: no-repeat
+                    background-position: center center
+                    background-size: .875em auto
+                  &:hover, &:focus, &:focus-visible
+                    border: 1px solid $white
           .styled__DropdownSelector-sc-122ziys-17
             div::after
-              color: $white!important
+              color: $brand-blue!important
+            &:hover, &:focus, &:focus-visible
+              div::after
+                color: $white!important
     .desktop-narrative-container
       padding: $content-space $content-space 0 $content-space
       div
