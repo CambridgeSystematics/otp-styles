@@ -36,6 +36,16 @@ body.mobile
       background-position: $font-base-size center
       padding-left: 50px + $font-base-size
       border-bottom: 1px solid rgba($brand-green,.5)
+    &::after
+      content: 'BETA'
+      position: absolute
+      color: $brand-green
+      font-size: 1.875em
+      line-height: 1
+      right: 15px
+      top: $mobile-branding-height/2
+      margin-top: -.5em
+      text-align: right
   .otp.mobile
     .navbar
       background-color: $brand-blue
@@ -108,6 +118,16 @@ body.mobile
       background-size: 210px auto
       background-repeat: no-repeat
       background-position: 50px center
+      position: relative
+      &::before
+        content: 'BETA'
+        position: absolute
+        color: $brand-green
+        font-size: 1.875em
+        line-height: 1
+        right: -2.5em
+        top: 50%
+        margin-top: -.5em
     .navbar-title
       display: none
       
