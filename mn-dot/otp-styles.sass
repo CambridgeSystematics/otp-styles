@@ -125,13 +125,17 @@ body.mobile
         color: $brand-green
         font-size: 1.875em
         line-height: 1
-        right: -2.5em
+        left: 8.25em
         top: 50%
         margin-top: -.5em
     .navbar-title
       display: none
       
   .sidebar
+    width: $sidebar-width
+    +mq-max($sidebar-switch)
+      width: $sidebar-width-small
+      // font-size: .875em
     main
       >div:first-child>div:first-child
         padding-bottom: 0!important
@@ -344,11 +348,13 @@ body.mobile
                 text-align: left!important
                 color: $white
                 white-space: initial
+                padding: 0 .5em
                 .icon
                   color: currentColor
-                svg
+                svg, img
                   fill: currentColor
                   display: inline-block
+                  margin: 0 .25em 0 0
                 .label
                   color: currentColor
                   font-size: 1em
@@ -434,18 +440,32 @@ body.mobile
             div[class*=ModeButton]
               width: 100%
               max-width: 50%
+              +mq-max($sidebar-switch)
+                max-width: 100%
+                width: auto
+                flex-grow: 0
+                >span
+                  white-space: nowrap
           .styled__submodeRow-sc-122ziys-12
             margin: 0 -#{$content-space/2}!important
             padding: 0!important
           div
             &[class*='Row-sc']
               display: flex
-              flex-wrap: nowrap
+              flex-wrap: wrap
               margin-bottom: $content-space
               &:last-child
                 margin-bottom: 0
               >*
                 flex-grow: 1
+                width: 100%
+                max-width: 50%
+                +mq-max($sidebar-switch)
+                  max-width: 100%
+                  width: auto
+                  flex-grow: 0
+                  >span
+                    white-space: nowrap
               .styled__Title-sc-122ziys-15
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
@@ -480,12 +500,11 @@ body.mobile
             &[class*='ModeButton']
               button
                 &.active
-                  padding-right: 2.5em
                   &::after
                     border-top-right-radius: $small-radius-size
                     border-bottom-right-radius: $small-radius-size
                     content: ''
-                    width: 2em
+                    width: 1.5em
                     height: 100%
                     background-color: $brand-green-ada
                     display: block
@@ -499,7 +518,11 @@ body.mobile
                     background-size: .875em auto
                   &:hover, &:focus, &:focus-visible
                     border: 1px solid $white
-          .styled__DropdownSelector-sc-122ziys-17
+                +mq-max($sidebar-switch)
+                  padding-right: 1em
+                  &.active
+                    padding-right: 2.5em
+            .styled__DropdownSelector-sc-122ziys-17
             div::after
               color: $brand-blue!important
             &:hover, &:focus, &:focus-visible
@@ -562,7 +585,15 @@ body.mobile
 
   .main-row
     top: $header-height
-
+    display: flex
+    flex-wrap: nowrap
+    width: 100%
+    align-items: stretch
+    padding: 0
+    margin: 0
+    > .map-container
+      width: auto
+      flex-grow: 1
   .tabbed-itineraries
     margin: 0
     .tab-row
@@ -625,8 +656,15 @@ body.mobile
           margin-right: 0
   .trip-tools
     font-size: $font-base-size
+    display: flex
+    flex-wrap: nowrap
+    > *
+      flex-grow: 1
     .tool-button
       font-size: inherit
+      width: 100%
+      padding-right: 1em
+      padding-left: 1em
 
   .white-fade
     display: none

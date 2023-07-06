@@ -138,6 +138,7 @@ body.mobile
       display: none
       
   .sidebar
+    width: $sidebar-width
     main
       >div:first-child>div:first-child
         padding-bottom: 0!important
@@ -345,11 +346,13 @@ body.mobile
                 min-height: $input-height
                 text-align: left!important
                 white-space: initial
+                padding: 0 .5em
                 .icon
                   color: currentColor
-                svg
+                svg, img
                   fill: currentColor
                   display: inline-block
+                  margin: 0 .25em 0 0
                 .label
                   color: currentColor
                   font-size: 1em
@@ -445,12 +448,14 @@ body.mobile
           div
             &[class*='Row-sc']
               display: flex
-              flex-wrap: nowrap
+              flex-wrap: wrap
               margin-bottom: $content-space
               &:last-child
                 margin-bottom: 0
               >*
                 flex-grow: 1
+                width: 100%
+                max-width: 50%
               .styled__Title-sc-122ziys-15
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
@@ -484,12 +489,12 @@ body.mobile
             &[class*='ModeButton']
               button
                 &.active
-                  padding-right: 2.5em
+                  // padding-right: 2.5em
                   &::after
-                    border-top-right-radius: $small-radius-size
-                    border-bottom-right-radius: $small-radius-size
+                    border-top-right-radius: $small-radius-size - 1
+                    border-bottom-right-radius: $small-radius-size - 1
                     content: ''
-                    width: 2em
+                    width: 1.5em
                     height: 100%
                     background-color: $brand-red
                     display: block
@@ -509,7 +514,7 @@ body.mobile
             &:hover, &:focus, &:focus-visible
               div::after
                 color: $white!important
-      .desktop-narrative-container
+    .desktop-narrative-container
       padding: $content-space $content-space 0 $content-space
       div
         &[class*='ItineraryBody-sc']
@@ -566,7 +571,15 @@ body.mobile
 
   .main-row
     top: $header-height
-
+    display: flex
+    flex-wrap: nowrap
+    width: 100%
+    align-items: stretch
+    padding: 0
+    margin: 0
+    > .map-container
+      width: auto
+      flex-grow: 1
   .tabbed-itineraries
     margin: 0
     .tab-row
@@ -629,8 +642,15 @@ body.mobile
           margin-right: 0
   .trip-tools
     font-size: $font-base-size
+    display: flex
+    flex-wrap: nowrap
+    > *
+      flex-grow: 1
     .tool-button
       font-size: inherit
+      width: 100%
+      padding-right: 1em
+      padding-left: 1em
 
   .white-fade
     display: none
