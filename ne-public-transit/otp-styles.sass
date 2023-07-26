@@ -139,6 +139,8 @@ body.mobile
       
   .sidebar
     width: $sidebar-width
+    +mq-max($sidebar-switch)
+      width: $sidebar-width-small
     main
       >div:first-child>div:first-child
         padding-bottom: 0!important
@@ -179,6 +181,8 @@ body.mobile
         input
           height: $input-height
           padding: 0
+          +mq-max($sidebar-switch)
+            font-size: 1em
       .switch-button-container
         width: $input-height
         height: $input-height
@@ -423,17 +427,17 @@ body.mobile
               padding: 0!important
         .settings-selector-panel
           // font size standardizing
-          .hNSroI .styled__MainRow-sc-122ziys-8, 
-          .hNSroI .styled__SecondaryRow-sc-122ziys-9, 
-          .hNSroI .styled__TertiaryRow-sc-122ziys-10,
-          .hNSroI .styled__ModeSelector-sc-122ziys-7,
-          .hNSroI .styled__submodeRow-sc-122ziys-12
+          div[class*=styled__SettingsSelectorPanel] .styled__MainRow-sc-122ziys-8, 
+          div[class*=styled__SettingsSelectorPanel] .styled__SecondaryRow-sc-122ziys-9, 
+          div[class*=styled__SettingsSelectorPanel] .styled__TertiaryRow-sc-122ziys-10,
+          div[class*=styled__SettingsSelectorPanel] .styled__ModeSelector-sc-122ziys-7,
+          div[class*=styled__SettingsSelectorPanel] .styled__submodeRow-sc-122ziys-12
             font-size: inherit
             text-align: left
             button, .styled__Title-sc-122ziys-15
               font-size: inherit
               text-align: center
-          .hNSroI .styled__ModeSelector-sc-122ziys-7
+          div[class*=styled__SettingsSelectorPanel] .styled__ModeSelector-sc-122ziys-7
             margin: 0 -#{$content-space/2}!important
             padding: 0!important
             display: flex
@@ -442,6 +446,12 @@ body.mobile
             div[class*=ModeButton]
               width: 100%
               max-width: 50%
+              button>span
+                white-space: nowrap
+              +mq-max($sidebar-switch)
+                max-width: 100%
+                width: 100%
+                flex-grow: 0
           .styled__submodeRow-sc-122ziys-12
             margin: 0 -#{$content-space/2}!important
             padding: 0!important
@@ -456,6 +466,12 @@ body.mobile
                 flex-grow: 1
                 width: 100%
                 max-width: 50%
+                button>span
+                  white-space: nowrap
+                +mq-max($sidebar-switch)
+                  max-width: 100%
+                  width: 100%
+                  flex-grow: 0
               .styled__Title-sc-122ziys-15
                 margin-top: $content-space/2
             &[class*='SettingsHeader']
